@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Postman to Swagger</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Postman → OpenAPI (Swagger 2.0)</h1>
+    <p>Paste or upload a Postman collection JSON, then view the converted spec.</p>
+  </header>
+  <main>
+    <section class="input-panel">
+      <label for="collection">Postman collection JSON</label>
+      <textarea id="collection" rows="12" placeholder='{"info":{"name":"My API"},...}'></textarea>
+      <div class="actions">
+        <input type="file" id="file" accept=".json,application/json" />
+        <button type="button" id="convert">Convert</button>
+      </div>
+      <p id="error" class="error" hidden></p>
+    </section>
+    <section id="swagger-wrap" hidden>
+      <div id="swagger-ui"></div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,4 +1,6 @@
 node_modules/
+dist/
+coverage/
 swagger.json
 .env
 .DS_Store
