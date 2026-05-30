@@ -1,5 +1,9 @@
 {
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "npm install",
   "rewrites": [
-    { "source": "/convert", "destination": "/api/convert" }
+    { "source": "/convert", "destination": "/api/convert" },
+    { "source": "/(.*)", "destination": "/api/index" }
   ]
 }
