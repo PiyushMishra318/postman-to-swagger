@@ -1,114 +1,51 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
-</p>
+# postman-to-swagger
 
-<h3 align="center">postman-to-swagger</h3>
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen?logo=node.js&logoColor=white)](package.json)
 
-<div align="center">
+Convert a [Postman collection](https://learning.postman.com/docs/collections/collections-overview/) JSON file into **Swagger / OpenAPI 2.0** JSON.
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+Built on [`postman-2-swagger`](https://www.npmjs.com/package/postman-2-swagger).
 
-</div>
+## Requirements
 
----
+- Node.js 18+
 
-<p align="center"> Few lines describing your project.
-    <br> 
-</p>
+## Installation
 
-## 📝 Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
-
-## 🧐 About <a name = "about"></a>
-
-Write about 1-2 paragraphs describing the purpose of your project.
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
+```bash
+git clone git@github.com:PiyushMishra318/postman-to-swagger.git
+cd postman-to-swagger
+npm install
 ```
 
-### Installing
+## Usage
 
-A step by step series of examples that tell you how to get a development env running.
+```bash
+# default: postman.json -> swagger.json
+npm run convert
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
+# custom paths
+node index.js ./my.postman.json ./openapi.json
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+## Scripts
 
-## 🔧 Running the tests <a name = "tests"></a>
+| Script | Description |
+|--------|-------------|
+| `npm run convert` | Convert default `postman.json` to `swagger.json` |
+| `npm test` | Run unit tests |
 
-Explain how to run the automated tests for this system.
+## Project layout
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```text
+.
+├── index.js          # CLI entrypoint
+├── lib/convert.js    # conversion helpers
+├── postman.json      # sample input collection
+└── test/             # node:test suite
 ```
 
-## 🎈 Usage <a name="usage"></a>
+## License
 
-Add notes about how to use the system.
-
-## 🚀 Deployment <a name = "deployment"></a>
-
-Add additional notes about how to deploy this on a live system.
-
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+MIT © 2026 [Piyush Mishra](https://github.com/PiyushMishra318)

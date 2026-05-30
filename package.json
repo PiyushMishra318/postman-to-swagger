@@ -1,25 +1,24 @@
 {
   "name": "postman-to-swagger",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Convert Postman collections to OpenAPI (Swagger) 2.0 JSON",
   "type": "module",
-  "directories": {
-    "test": "test"
+  "main": "lib/convert.js",
+  "bin": {
+    "postman-to-swagger": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "convert": "node index.js",
+    "test": "node --test test/*.test.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["postman", "swagger", "openapi", "converter"],
+  "author": "Piyush Mishra",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "cookies": "^0.8.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.13.0",
     "postman-2-swagger": "^0.5.0"
   }
 }

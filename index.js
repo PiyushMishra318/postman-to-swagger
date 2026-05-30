@@ -1,18 +1,38 @@
-import postmanToSwagger from "postman-2-swagger";
-
+#!/usr/bin/env node
 import fs from "fs";
-const postman = fs.readFileSync("./postman.json").toString();
+import path from "path";
+import { convertPostmanFileToSwagger } from "./lib/convert.js";
 
-const convertAndSave = (postmanJson) => {
-  // This returns the actual swagger v2.0 spec as a json
-  const swaggerJson = postmanToSwagger(postmanJson);
+const args = process.argv.slice(2);
 
-  // Example if you want to save it somewhere
-  fs.writeFileSync(
-    "./swagger.json",
-    JSON.stringify(swaggerJson, null, 2),
-    "utf8"
-  );
-};
+function printHelp() {
+  console.log(`postman-to-swagger — convert a Postman collection to Swagger 2.0 JSON
 
-convertAndSave(JSON.parse(postman));
+Usage:
+  postman-to-swagger [input] [output]
+
+Arguments:
+  input   Postman collection JSON (default: ./postman.json)
+  output  Swagger JSON output path (default: ./swagger.json)
+
+Examples:
+  postman-to-swagger
+  postman-to-swagger ./my.postman.json ./openapi.json
+  npm run convert -- ./postman.json ./swagger.json`);
+}
+
+if (args.includes("-h") || args.includes("--help")) {
+  printHelp();
+  process.exit(0);
+}
+
+const input = path.resolve(args[0] ?? "postman.json");
+const output = path.resolve(args[1] ?? "swagger.json");
+
+try {
+  convertPostmanFileToSwagger(input, output, fs);
+  console.log(`Wrote ${output}`);
+} catch (error) {
+  console.error(`postman-to-swagger: ${error.message}`);
+  process.exit(1);
+}
