@@ -41,13 +41,19 @@ curl -X POST http://localhost:3000/convert \
   -d @postman.json
 ```
 
+### Demo
+
+- Open the live app (after deploy): **https://postman-to-swagger.vercel.app**
+- Paste or upload Postman collection JSON → **Convert** → Swagger UI preview
+- **Load sample** fills a minimal collection; you can also upload `postman.json`
+
 ### Deploy (Vercel)
 
 ```bash
 npx vercel --prod
 ```
 
-Set no extra env vars. The `/convert` route is served by `api/convert.ts`; static files live in `public/`.
+Set no extra env vars. The `/convert` route is served by `api/convert.ts`; static UI is served from `public/` via `api/index.ts`.
 
 ### Programmatic
 

@@ -3,29 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Convert Postman collections to OpenAPI 2.0 and preview in Swagger UI." />
   <title>Postman to Swagger</title>
   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Postman → OpenAPI (Swagger 2.0)</h1>
-    <p>Paste or upload a Postman collection JSON, then view the converted spec.</p>
+  <header class="header">
+    <div class="header__inner">
+      <h1>Postman → OpenAPI</h1>
+      <p>Paste or upload a Postman collection JSON, then preview the converted Swagger 2.0 spec.</p>
+    </div>
   </header>
-  <main>
-    <section class="input-panel">
+  <main class="main">
+    <section class="card input-panel">
       <label for="collection">Postman collection JSON</label>
       <textarea id="collection" rows="12" placeholder='{"info":{"name":"My API"},...}'></textarea>
       <div class="actions">
         <input type="file" id="file" accept=".json,application/json" />
-        <button type="button" id="convert">Convert</button>
+        <button type="button" id="sample" class="btn btn--ghost">Load sample</button>
+        <button type="button" id="convert" class="btn">Convert</button>
       </div>
-      <p id="error" class="error" hidden></p>
+      <p id="error" class="error" hidden role="alert"></p>
+      <p id="loading" class="loading" hidden aria-live="polite">Converting…</p>
     </section>
-    <section id="swagger-wrap" hidden>
+    <section id="swagger-wrap" class="card" hidden>
       <div id="swagger-ui"></div>
     </section>
   </main>
+  <footer class="footer">
+    <p>MIT © 2026 · <a href="mailto:piyush_mishra31@outlook.com">piyush_mishra31@outlook.com</a></p>
+  </footer>
   <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
   <script src="/app.js"></script>
 </body>
