@@ -2,7 +2,8 @@
 
 > Looking at this after a long time. IDK what I was thinking I am just using a package inside that converts the collection to swagger.
 > Also I'm pretty sure they both generate the same open-api spec json. So the whole purpose of this thing is moot.
-> Ah the good ol' days. Too much time on my hands I suppose. Anyway archiving this.
+> Ah the good ol' days. Too much time on my hands I suppose.
+> Upgraded the tech stack using AI. Anyway archiving this.
 
 # postman-to-swagger
 
